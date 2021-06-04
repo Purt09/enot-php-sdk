@@ -3,7 +3,7 @@
   "description": "Library for implement enot.io",
   "type": "library",
   "license": "MIT",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "repositories": [
     {
       "type": "vcs",
