@@ -1,5 +1,8 @@
 <?php
 
+namespace Purt09\Enot;
+
+use DomainException;
 
 class Enot
 {
