@@ -2,12 +2,18 @@
   "name": "purt09/enot",
   "description": "Library for implement enot.io",
   "type": "library",
+  "keywords": ["enot.io"],
   "license": "MIT",
-  "minimum-stability": "stable",
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/Purt09/enot-php-sdk.git"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Alexandr Purtov",
+      "email": "alexpurtv@gmail.com"
     }
   ],
   "require": {
@@ -18,8 +24,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Purt09\\Enot\\": "src/",
+      "Purt09\\Enot\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Test\\": "tests/"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }

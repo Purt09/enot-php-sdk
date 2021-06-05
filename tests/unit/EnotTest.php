@@ -19,16 +19,4 @@ class EnotTest extends TestCase
 
         $this->assertEquals($sign, $enot->generateSign($order_amount, $payment_id));
     }
-
-    public function testCheckSign2()
-    {
-        $secret_word2 = 'enot_secret_word2'; // ???
-        $enot = new Enot(150, 'asd', $secret_word2);
-
-        $params = [
-            'merchant' => 150,
-            'amount' => 200.00,
-            'sign_2' => "5a9446513885f52cd8f9ec3066d87992"
-        ];
-    }
 }
