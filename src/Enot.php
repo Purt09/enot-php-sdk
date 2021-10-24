@@ -7,6 +7,8 @@ use DomainException;
 class Enot
 {
     const LINK = "https://enot.io/pay?";
+    const LINK_REQUEST = "https://enot.io/request/payment-methods?";
+    const LINK_INFO = "https://enot.io/request/payment-info?";
 
     private $id;
 
@@ -24,6 +26,26 @@ class Enot
     public function generateSign(float $order_amount, string $payment_id): string
     {
         return md5($this->id.':'.$order_amount.':'.$this->secret_key.':'.$payment_id);
+    }
+
+    public function request()
+    {
+        $params = [
+            'merchant_id' => $this->id,
+            'secret_key' => $this->secret_key,
+        ];
+        return file_get_contents(self::LINK_REQUEST . http_build_query($params));
+    }
+
+    public function paymentInfo($api_key, $email, $id)
+    {
+        $params = [
+            'api_key' => $api_key,
+            'email' => $email,
+            'id' => $id,
+            'shop_id' => $this->id
+        ];
+        return file_get_contents(self::LINK_INFO . http_build_query($params));
     }
 
     public function generateLink(float $sum, string $payment_id, $spec_value = "spec", string $currency = "RUB", string $comment = "comment")
